@@ -1,0 +1,261 @@
+{
+  "title": "Employee Intake Form",
+  "name": "employee-intake-form-v3",
+  "path": "employee-intake-form-v3",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Personal Information",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "firstName",
+          "label": "First Name",
+          "placeholder": "e.g. Sarah",
+          "validate": {
+            "required": true,
+            "minLength": 2
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "lastName",
+          "label": "Last Name",
+          "placeholder": "e.g. Williams",
+          "validate": {
+            "required": true,
+            "minLength": 2
+          }
+        },
+        {
+          "type": "email",
+          "key": "personalEmail",
+          "label": "Personal Email",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "key": "phone",
+          "label": "Phone Number"
+        },
+        {
+          "type": "datetime",
+          "key": "dateOfBirth",
+          "label": "Date of Birth",
+          "format": "yyyy-MM-dd",
+          "enableDate": true,
+          "enableTime": false
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Employment Details",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "employeeId",
+          "label": "Employee ID",
+          "placeholder": "e.g. EMP-2024-0042",
+          "validate": {
+            "required": true,
+            "pattern": "EMP-\\d{4}-\\d{4}"
+          }
+        },
+        {
+          "type": "select",
+          "key": "department",
+          "label": "Department",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Engineering",
+                "value": "ENGINEERING"
+              },
+              {
+                "label": "Human Resources",
+                "value": "HR"
+              },
+              {
+                "label": "Finance",
+                "value": "FINANCE"
+              },
+              {
+                "label": "Sales",
+                "value": "SALES"
+              },
+              {
+                "label": "Customer Success",
+                "value": "CUSTOMER_SUCCESS"
+              },
+              {
+                "label": "Operations",
+                "value": "OPERATIONS"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "jobTitle",
+          "label": "Job Title",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "select",
+          "key": "contractType",
+          "label": "Contract Type",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Full-time Permanent",
+                "value": "FULL_TIME"
+              },
+              {
+                "label": "Fixed-term Contract",
+                "value": "FIXED_TERM"
+              },
+              {
+                "label": "Part-time",
+                "value": "PART_TIME"
+              },
+              {
+                "label": "Internship",
+                "value": "INTERNSHIP"
+              }
+            ]
+          }
+        },
+        {
+          "type": "datetime",
+          "key": "startDate",
+          "label": "Start Date",
+          "format": "yyyy-MM-dd",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "number",
+          "key": "salary",
+          "label": "Annual Salary (USD)",
+          "validate": {
+            "required": true,
+            "min": 0
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "managerEmail",
+          "label": "Direct Manager Email",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "IT Requirements",
+      "collapsible": true,
+      "components": [
+        {
+          "type": "select",
+          "key": "laptopType",
+          "label": "Preferred Laptop",
+          "data": {
+            "values": [
+              {
+                "label": "MacBook Pro 14\"",
+                "value": "MACBOOK_PRO_14"
+              },
+              {
+                "label": "MacBook Air M2",
+                "value": "MACBOOK_AIR_M2"
+              },
+              {
+                "label": "Dell XPS 15",
+                "value": "DELL_XPS_15"
+              },
+              {
+                "label": "Lenovo ThinkPad",
+                "value": "LENOVO_THINKPAD"
+              }
+            ]
+          }
+        },
+        {
+          "type": "selectboxes",
+          "key": "softwareNeeds",
+          "label": "Required Software",
+          "values": [
+            {
+              "label": "Microsoft Office 365",
+              "value": "office365"
+            },
+            {
+              "label": "Adobe Creative Suite",
+              "value": "adobe"
+            },
+            {
+              "label": "Slack",
+              "value": "slack"
+            },
+            {
+              "label": "Zoom",
+              "value": "zoom"
+            },
+            {
+              "label": "GitHub",
+              "value": "github"
+            },
+            {
+              "label": "Jira",
+              "value": "jira"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "key": "vpnAccess",
+          "label": "Requires VPN Access",
+          "defaultValue": true
+        },
+        {
+          "type": "checkbox",
+          "key": "adminRights",
+          "label": "Requires Local Admin Rights",
+          "defaultValue": false
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "key": "additionalNotes",
+      "label": "Additional Notes",
+      "placeholder": "Any special requirements, accessibility needs, or notes for HR..."
+    },
+    {
+      "type": "button",
+      "label": "Submit Onboarding Request",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}
