@@ -1,0 +1,245 @@
+{
+  "title": "Loan Application Form",
+  "name": "loan-form-v1",
+  "path": "loan-form-v1",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Applicant Information",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "applicantName",
+          "label": "Full Name",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "nationalId",
+          "label": "National ID / Passport Number",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "email",
+          "key": "applicantEmail",
+          "label": "Email Address",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "key": "applicantPhone",
+          "label": "Phone Number",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "address",
+          "label": "Home Address",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Financial Information",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "select",
+          "key": "employmentStatus",
+          "label": "Employment Status",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Employed (Full-time)",
+                "value": "EMPLOYED_FULL"
+              },
+              {
+                "label": "Employed (Part-time)",
+                "value": "EMPLOYED_PART"
+              },
+              {
+                "label": "Self-employed",
+                "value": "SELF_EMPLOYED"
+              },
+              {
+                "label": "Business Owner",
+                "value": "BUSINESS_OWNER"
+              },
+              {
+                "label": "Retired",
+                "value": "RETIRED"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "employerName",
+          "label": "Employer / Business Name",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "number",
+          "key": "applicantIncome",
+          "label": "Annual Income (USD)",
+          "validate": {
+            "required": true,
+            "min": 1
+          },
+          "description": "\u26a0 AKITI tip: this field maps to a Number variable in Camunda. Ensure 'Number(value)' transform is set in the Variable Mapper \u2014 omitting it causes a type-mismatch failure (like Instance #1040)."
+        },
+        {
+          "type": "number",
+          "key": "otherIncome",
+          "label": "Other Monthly Income (USD)",
+          "defaultValue": 0
+        },
+        {
+          "type": "number",
+          "key": "monthlyExpenses",
+          "label": "Total Monthly Expenses (USD)",
+          "validate": {
+            "required": true,
+            "min": 0
+          }
+        },
+        {
+          "type": "number",
+          "key": "existingDebt",
+          "label": "Existing Debt Balance (USD)",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Loan Request",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "select",
+          "key": "loanPurpose",
+          "label": "Loan Purpose",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Home Purchase",
+                "value": "HOME_PURCHASE"
+              },
+              {
+                "label": "Home Renovation",
+                "value": "HOME_RENOVATION"
+              },
+              {
+                "label": "Education",
+                "value": "EDUCATION"
+              },
+              {
+                "label": "Vehicle",
+                "value": "VEHICLE"
+              },
+              {
+                "label": "Business Startup",
+                "value": "BUSINESS"
+              },
+              {
+                "label": "Debt Consolidation",
+                "value": "DEBT_CONSOLIDATION"
+              },
+              {
+                "label": "Personal / Other",
+                "value": "PERSONAL"
+              }
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "key": "loanAmount",
+          "label": "Requested Loan Amount (USD)",
+          "validate": {
+            "required": true,
+            "min": 1000,
+            "max": 500000
+          }
+        },
+        {
+          "type": "select",
+          "key": "loanTerm",
+          "label": "Loan Term",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "12 months",
+                "value": "12"
+              },
+              {
+                "label": "24 months",
+                "value": "24"
+              },
+              {
+                "label": "36 months",
+                "value": "36"
+              },
+              {
+                "label": "48 months",
+                "value": "48"
+              },
+              {
+                "label": "60 months",
+                "value": "60"
+              },
+              {
+                "label": "84 months",
+                "value": "84"
+              },
+              {
+                "label": "120 months",
+                "value": "120"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "key": "termsAccepted",
+      "label": "I confirm that all information provided is accurate and I consent to a credit bureau check.",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "button",
+      "label": "Submit Application",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}

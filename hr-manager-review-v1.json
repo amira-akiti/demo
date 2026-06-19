@@ -1,0 +1,93 @@
+{
+  "title": "Manager Leave Approval",
+  "name": "hr-manager-review-v1",
+  "path": "hr-manager-review-v1",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Request Summary (Pre-filled from Process)",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "employeeName",
+          "label": "Employee Name",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "leaveType",
+          "label": "Leave Type",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "startDate",
+          "label": "Start Date",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "endDate",
+          "label": "End Date",
+          "disabled": true
+        },
+        {
+          "type": "number",
+          "key": "leaveDays",
+          "label": "Working Days Requested",
+          "disabled": true
+        },
+        {
+          "type": "number",
+          "key": "remainingDays",
+          "label": "Remaining Leave Balance",
+          "disabled": true,
+          "description": "Fetched from HR system by the automated balance-check service task."
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Manager Decision",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "decision",
+          "label": "Approval Decision",
+          "validate": {
+            "required": true
+          },
+          "values": [
+            {
+              "label": "\u2705 Approve",
+              "value": "true"
+            },
+            {
+              "label": "\u274c Deny",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "key": "managerNote",
+          "label": "Manager Note",
+          "placeholder": "Optional reason, conditions, or instructions for HR...",
+          "validate": {
+            "custom": "valid = (data.decision === 'false') ? (value && value.length > 10 || 'Please provide a reason for denial') : true"
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "label": "Submit Decision",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}

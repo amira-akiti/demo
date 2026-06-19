@@ -1,0 +1,132 @@
+{
+  "title": "Leave Request Form",
+  "name": "hr-leave-form-v1",
+  "path": "hr-leave-form-v1",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Employee Details",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "employeeName",
+          "label": "Full Name",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "employeeId",
+          "label": "Employee ID",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "managerEmail",
+          "label": "Direct Manager Email",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Leave Details",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "select",
+          "key": "leaveType",
+          "label": "Leave Type",
+          "validate": {
+            "required": true
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Annual Leave",
+                "value": "ANNUAL"
+              },
+              {
+                "label": "Sick Leave",
+                "value": "SICK"
+              },
+              {
+                "label": "Maternity / Paternity",
+                "value": "PARENTAL"
+              },
+              {
+                "label": "Unpaid Leave",
+                "value": "UNPAID"
+              },
+              {
+                "label": "Compassionate Leave",
+                "value": "COMPASSIONATE"
+              },
+              {
+                "label": "Study Leave",
+                "value": "STUDY"
+              }
+            ]
+          }
+        },
+        {
+          "type": "datetime",
+          "key": "startDate",
+          "label": "Start Date",
+          "format": "yyyy-MM-dd",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "datetime",
+          "key": "endDate",
+          "label": "End Date",
+          "format": "yyyy-MM-dd",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "number",
+          "key": "days",
+          "label": "Number of Working Days",
+          "validate": {
+            "required": true,
+            "min": 0.5
+          },
+          "description": "Exclude weekends and public holidays."
+        },
+        {
+          "type": "checkbox",
+          "key": "halfDay",
+          "label": "Half-day leave only"
+        },
+        {
+          "type": "textarea",
+          "key": "reason",
+          "label": "Reason / Additional Notes",
+          "placeholder": "Optional: provide context for your request..."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "label": "Submit Leave Request",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}

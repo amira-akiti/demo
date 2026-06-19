@@ -1,0 +1,99 @@
+{
+  "title": "Loan Officer Review Form",
+  "name": "loan-review-v1",
+  "path": "loan-review-v1",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Applicant Summary (Pre-filled from Process)",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "applicantName",
+          "label": "Applicant Name",
+          "disabled": true
+        },
+        {
+          "type": "number",
+          "key": "applicantIncome",
+          "label": "Annual Income (USD)",
+          "disabled": true
+        },
+        {
+          "type": "number",
+          "key": "loanAmount",
+          "label": "Requested Amount (USD)",
+          "disabled": true
+        },
+        {
+          "type": "number",
+          "key": "creditScore",
+          "label": "Credit Score",
+          "disabled": true,
+          "description": "Retrieved by automated credit check service task."
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Officer Assessment",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "loanApproved",
+          "label": "Loan Decision",
+          "validate": {
+            "required": true
+          },
+          "values": [
+            {
+              "label": "\u2705 Approve",
+              "value": "true"
+            },
+            {
+              "label": "\u274c Reject",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "key": "approvedAmount",
+          "label": "Approved Amount (USD)",
+          "description": "May differ from requested amount. Leave 0 if rejecting.",
+          "validate": {
+            "min": 0
+          }
+        },
+        {
+          "type": "number",
+          "key": "interestRate",
+          "label": "Interest Rate (%)",
+          "validate": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "type": "textarea",
+          "key": "reviewNotes",
+          "label": "Review Notes",
+          "validate": {
+            "required": true
+          },
+          "placeholder": "Reason for approval/rejection, conditions, remarks..."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "label": "Submit Decision",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}
