@@ -1,0 +1,85 @@
+{
+  "title": "HR Review & Approval",
+  "name": "hr-review-form-v2",
+  "path": "hr-review-form-v2",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Intake Summary (Read-only)",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "employeeId",
+          "label": "Employee ID",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "jobTitle",
+          "label": "Job Title",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "department",
+          "label": "Department",
+          "disabled": true
+        },
+        {
+          "type": "textfield",
+          "key": "startDate",
+          "label": "Start Date",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "HR Manager Decision",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "hrApproved",
+          "label": "Onboarding Decision",
+          "validate": {
+            "required": true
+          },
+          "values": [
+            {
+              "label": "\u2705 Approve \u2014 proceed with onboarding",
+              "value": "true"
+            },
+            {
+              "label": "\u274c Reject \u2014 do not proceed",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "key": "hrReviewNotes",
+          "label": "Review Notes",
+          "placeholder": "Reason for decision, any conditions, or remarks..."
+        },
+        {
+          "type": "textfield",
+          "key": "hrOfficerName",
+          "label": "HR Officer Name",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "label": "Submit Decision",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}
